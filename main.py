@@ -16,13 +16,13 @@ lbl = Label(
     # Changing font-size here
     font=("Arial", 25)).pack()
 
-btn1 = Button(my_window, text='Button')
+btn1 = Button(my_window, text='Yes')
 btn1.pack(side=LEFT, padx=5)
 
-btn2 = Button(my_window, text='Button')
+btn2 = Button(my_window, text='Nop')
 
 btn2.pack(side=LEFT, padx=5)
 
-my_window.update()
-time.sleep(10)
-my_window.destroy()
+#my_window.update()
+time.sleep(1)
+#my_window.destroy()
