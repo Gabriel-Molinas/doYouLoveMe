@@ -20,11 +20,7 @@ class Example(Frame):
 
         frame = Frame(self, bd=30)
         frame.pack()
-        lbl = Label(
-            frame,
-            text="Do you love me?",
-            # Changing font-size here
-            font=("Arial", 25))
+        lbl = Label(frame, text="Do you love me?", font=("Arial", 25))
         lbl.pack()
 
         btn1 = Button(frame, text='Yes', height=20, width=7)
@@ -73,6 +69,7 @@ def main():
     root.bind('<Motion>', motion)
     print(motion)
 
+    root.resizable(width=False, height=False)
     root.geometry("300x200+" + str(x_ventana) + "+" + str(y_ventana))
     app = Example()
     root.mainloop()
