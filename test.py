@@ -38,32 +38,42 @@ class Example(Frame):
         self.pack()
 
 
-posX = 300
-posY = 300
+root = Tk()
+x_ventana = root.winfo_screenwidth() // 2 - 300 // 2
+y_ventana = root.winfo_screenheight() // 2 - 200 // 2
+posX = x_ventana
+posY = y_ventana
+steps = 5
 
 
 def main():
-
-    root = Tk()
-
     def motion(event):
         x, y = event.x, event.y
-        print(x)
-        if (x >= 170 and x <= 250):
+        if ((x >= 170 and x <= 250) or (y >= 90 and y <= 150)):
+
             global posX
-            if (x >= 160 and x <= 200):
-                posX = posX + 1
+            global posY
+
+            if ((x >= 154 and x <= 200) and (y >= 90 and y <= 150)):
+                posX = posX + steps
                 root.geometry("300x200+" + str(posX) + "+" + str(posY))
 
-            if (x <= 260 and x >= 220):
+            if ((x <= 260 and x >= 220) and (y >= 90 and y <= 150)):
+                posX = posX - steps
+                root.geometry("300x200+" + str(posX) + "+" + str(posY))
 
-                posX = posX - 1
+            if ((y >= 90 and y <= 120) and (x >= 170 and x <= 250)):
+                posY = posY + steps
+                root.geometry("300x200+" + str(posX) + "+" + str(posY))
+
+            if ((y <= 150 and y >= 120) and (x >= 170 and x <= 250)):
+                posY = posY - steps
                 root.geometry("300x200+" + str(posX) + "+" + str(posY))
 
     root.bind('<Motion>', motion)
     print(motion)
 
-    root.geometry("300x200+" + str(posX) + "+" + str(posY))
+    root.geometry("300x200+" + str(x_ventana) + "+" + str(y_ventana))
     app = Example()
     root.mainloop()
 
