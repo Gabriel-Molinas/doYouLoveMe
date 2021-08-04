@@ -2,7 +2,7 @@
 """
 Author: Gabrirl Molinas
 """
-
+import webbrowser
 from tkinter import Tk, Frame, Button, Label
 from tkinter import BOTH, LEFT
 
@@ -23,10 +23,10 @@ class Example(Frame):
         lbl = Label(frame, text="Do you love me?", font=("Arial", 25))
         lbl.pack()
 
-        btn1 = Button(frame, text='Yes', height=20, width=7)
+        btn1 = Button(frame, text='Yes', command=press_yes, height=20, width=7)
         btn1.pack(side=LEFT, padx=30, pady=30)
 
-        btn2 = Button(frame, text='No', height=20, width=10)
+        btn2 = Button(frame, text='No', command=press_no, height=20, width=10)
         btn2.pack(side=LEFT, padx=30, pady=30)
 
         frame2 = Frame(self)
@@ -40,6 +40,16 @@ y_ventana = root.winfo_screenheight() // 2 - 200 // 2
 posX = x_ventana
 posY = y_ventana
 steps = 5
+
+
+def press_no():
+    webbrowser.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+    pass
+
+
+def press_yes():
+    webbrowser.open('https://youtu.be/3FygIKsnkCw?t=7')
+    pass
 
 
 def main():
